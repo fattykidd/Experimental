@@ -21,7 +21,7 @@ VOLUME ["/config"]
 
 ENV PATH="/opt/venv/bin:${PATH}"
 
-RUN apt-get update && apt-get install --no-install-recommends -y curl && apt-get install --no-install-recommends -y sqlite3
+RUN apt-get update && apt-get install --no-install-recommends -y curl && apt-get install --no-install-recommends -y sqlite3 libusb-1.0
 
 ADD https://github.com/mrene/minidsp-rs/releases/download/v0.1.12/minidsp_0.1.12-1_amd64.deb
 
