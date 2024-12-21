@@ -23,9 +23,9 @@ ENV PATH="/opt/venv/bin:${PATH}"
 
 RUN apt-get update && apt-get install --no-install-recommends -y curl && apt-get install --no-install-recommends -y sqlite3 libusb-1.0
 
-ADD https://github.com/mrene/minidsp-rs/releases/download/v0.1.12/minidsp_0.1.12-1_amd64.deb
+ADD https://github.com/mrene/minidsp-rs/releases/download/v0.1.12/minidsp_0.1.12-1_amd64.deb /tmp/
 
-RUN apt-get install -y ./minidsp_0.1.12-1_amd64.deb
+RUN apt-get install -y ./minidsp_0.1.12-1_amd64.deb && rm /tmp/minidsp_0.1.12-1_amd64.deb
 
 HEALTHCHECK --interval=10s --timeout=2s \
   CMD curl -f -s --show-error http://localhost:8080/api/1/version || exit 1
